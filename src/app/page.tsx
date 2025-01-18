@@ -175,7 +175,8 @@ export default function Home() {
             <button
               type="button"
               aria-label={
-                translations[language as keyof typeof translations].captureButton
+                translations[language as keyof typeof translations]
+                  .captureButton
               }
               className="flex flex-col gap-y-8 items-center"
               onClick={onCaptureImage}
@@ -187,7 +188,10 @@ export default function Home() {
                 transition={{ duration: 1 }}
                 className="text-zinc-300 font-bold text-md"
               >
-                {translations[language as keyof typeof translations].captureButton}
+                {
+                  translations[language as keyof typeof translations]
+                    .captureButton
+                }
               </motion.span>
             </button>
           ) : (
@@ -225,10 +229,16 @@ export default function Home() {
                   <button
                     type="button"
                     className="font-semibold text-[1rem] bg-transparent border-none text-white"
-                    onClick={() => setSelectedImage(null)}
+                    onClick={() => {
+                      setSelectedImage(null);
+                      setDiagnosis(null);
+                    }}
                     disabled={isLoading}
                   >
-                    {translations[language as keyof typeof translations].replaceImage}
+                    {
+                      translations[language as keyof typeof translations]
+                        .replaceImage
+                    }
                   </button>
                 </div>
               </div>
@@ -311,7 +321,7 @@ export default function Home() {
                     </div>
 
                     <div
-                      className={`rounded-[1rem] py-2 px-4 mt-4 flex items-center gap-x-2 ${
+                      className={`rounded-[1rem] py-2 px-4 mt-4 flex items-center justify-center gap-x-2 ${
                         diagnosis.isHealthy ? "bg-green-600" : "bg-red-600"
                       }`}
                     >
