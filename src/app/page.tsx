@@ -232,6 +232,10 @@ export default function Home() {
                     onClick={() => {
                       setSelectedImage(null);
                       setDiagnosis(null);
+                      // Reset the file input or else reuploading the same image will not trigger handleFileChange
+                      if (fileInputRef.current) {
+                        fileInputRef.current.value = "";
+                      }
                     }}
                     disabled={isLoading}
                   >
